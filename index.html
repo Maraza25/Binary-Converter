@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .table-scroll::-webkit-scrollbar {
+            width: 10px;
+            background-color: #faebd7;
+        }
+
+        .table-scroll::-webkit-scrollbar-thumb {
+            background-color: #e6d8c6;
+            border-radius: 10px;
+        
+        }
+
+        .table-scroll::-webkit-scrollbar-thumb:hover {
+            background-color: #271806;
+        }
+
+        iframe::-webkit-scrollbar {
+            width: 10px;
+            background-color: #faebd7;
+        }
+
+        iframe::-webkit-scrollbar-thumb {
+            background-color: #e6d8c6;
+            border-radius: 10px;
+        
+        }
+
+        iframe::-webkit-scrollbar-thumb:hover {
+            background-color: #271806;
+        }
+        
+
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: antiquewhite;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .table {
+            width: 50%;
+            height: 400px;
+            border-radius: 5px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .images {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 90%;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        iframe {
+            width: 90%;
+            height: 70%;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .table-scroll {
+            height: 79%;
+            overflow: auto;
+            border-radius: 5px;
+
+
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="table-scroll">
+
+            <div class="table">
+                <table class="dtable">
+                    <thead>
+                        <tr>
+                            <th>Hexadecimal</th>
+                            <th>Binary</th>
+                            <th>ASCII<br>Character</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>00</td>
+                        <td>00000000</td>
+                        <td>NUL</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>00000001</td>
+                        <td>SOH</td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>00000010</td>
+                        <td>STX</td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td>00000011</td>
+                        <td>ETX</td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td>00000100</td>
+                        <td>EOT</td>
+                    </tr>
+                    <tr>
+                        <td>05</td>
+                        <td>00000101</td>
+                        <td>ENQ</td>
+                    </tr>
+                    <tr>
+                        <td>06</td>
+                        <td>00000110</td>
+                        <td>ACK</td>
+                    </tr>
+                    <tr>
+                        <td>07</td>
+                        <td>00000111</td>
+                        <td>BEL</td>
+                    </tr>
+                    <tr>
+                        <td>08</td>
+                        <td>00001000</td>
+                        <td>BS</td>
+                    </tr>
+                    <tr>
+                        <td>09</td>
+                        <td>00001001</td>
+                        <td>HT</td>
+                    </tr>
+                    <tr>
+                        <td>0A</td>
+                        <td>00001010</td>
+                        <td>LF</td>
+                    </tr>
+                    <tr>
+                        <td>0B</td>
+                        <td>00001011</td>
+                        <td>VT</td>
+                    </tr>
+                    <tr>
+                        <td>0C</td>
+                        <td>00001100</td>
+                        <td>FF</td>
+                    </tr>
+                    <tr>
+                        <td>0D</td>
+                        <td>00001101</td>
+                        <td>CR</td>
+                    </tr>
+                    <tr>
+                        <td>0E</td>
+                        <td>00001110</td>
+                        <td>SO</td>
+                    </tr>
+                    <tr>
+                        <td>0F</td>
+                        <td>00001111</td>
+                        <td>SI</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>00010000</td>
+                        <td>DLE</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>00010001</td>
+                        <td>DC1</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>00010010</td>
+                        <td>DC2</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>00010011</td>
+                        <td>DC3</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>00010100</td>
+                        <td>DC4</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>00010101</td>
+                        <td>NAK</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>00010110</td>
+                        <td>SYN</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>00010111</td>
+                        <td>ETB</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>00011000</td>
+                        <td>CAN</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>00011001</td>
+                        <td>EM</td>
+                    </tr>
+                    <tr>
+                        <td>1A</td>
+                        <td>00011010</td>
+                        <td>SUB</td>
+                    </tr>
+                    <tr>
+                        <td>1B</td>
+                        <td>00011011</td>
+                        <td>ESC</td>
+                    </tr>
+                    <tr>
+                        <td>1C</td>
+                        <td>00011100</td>
+                        <td>FS</td>
+                    </tr>
+                    <tr>
+                        <td>1D</td>
+                        <td>00011101</td>
+                        <td>GS</td>
+                    </tr>
+                    <tr>
+                        <td>1E</td>
+                        <td>00011110</td>
+                        <td>RS</td>
+                    </tr>
+                    <tr>
+                        <td>1F</td>
+                        <td>00011111</td>
+                        <td>US</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>00100000</td>
+                        <td>Space</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>00100001</td>
+                        <td>!</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>00100010</td>
+                        <td>&quot;</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>00100011</td>
+                        <td>#</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>00100100</td>
+                        <td>$</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>00100101</td>
+                        <td>%</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>00100110</td>
+                        <td>&amp;</td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>00100111</td>
+                        <td>'</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>00101000</td>
+                        <td>(</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>00101001</td>
+                        <td>)</td>
+                    </tr>
+                    <tr>
+                        <td>2A</td>
+                        <td>00101010</td>
+                        <td>*</td>
+                    </tr>
+                    <tr>
+                        <td>2B</td>
+                        <td>00101011</td>
+                        <td>+</td>
+                    </tr>
+                    <tr>
+                        <td>2C</td>
+                        <td>00101100</td>
+                        <td>,</td>
+                    </tr>
+                    <tr>
+                        <td>2D</td>
+                        <td>00101101</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>2E</td>
+                        <td>00101110</td>
+                        <td>.</td>
+                    </tr>
+                    <tr>
+                        <td>2F</td>
+                        <td>00101111</td>
+                        <td>/</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>00110000</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>00110001</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>00110010</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td>00110011</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>00110100</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>00110101</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>00110110</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td>00110111</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>00111000</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        <td>00111001</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>3A</td>
+                        <td>00111010</td>
+                        <td>:</td>
+                    </tr>
+                    <tr>
+                        <td>3B</td>
+                        <td>00111011</td>
+                        <td>;</td>
+                    </tr>
+                    <tr>
+                        <td>3C</td>
+                        <td>00111100</td>
+                        <td>&lt;</td>
+                    </tr>
+                    <tr>
+                        <td>3D</td>
+                        <td>00111101</td>
+                        <td>=</td>
+                    </tr>
+                    <tr>
+                        <td>3E</td>
+                        <td>00111110</td>
+                        <td>&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>3F</td>
+                        <td>00111111</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>01000000</td>
+                        <td>@</td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td>01000001</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        <td>01000010</td>
+                        <td>B</td>
+                    </tr>
+                    <tr>
+                        <td>43</td>
+                        <td>01000011</td>
+                        <td>C</td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        <td>01000100</td>
+                        <td>D</td>
+                    </tr>
+                    <tr>
+                        <td>45</td>
+                        <td>01000101</td>
+                        <td>E</td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td>01000110</td>
+                        <td>F</td>
+                    </tr>
+                    <tr>
+                        <td>47</td>
+                        <td>01000111</td>
+                        <td>G</td>
+                    </tr>
+                    <tr>
+                        <td>48</td>
+                        <td>01001000</td>
+                        <td>H</td>
+                    </tr>
+                    <tr>
+                        <td>49</td>
+                        <td>01001001</td>
+                        <td>I</td>
+                    </tr>
+                    <tr>
+                        <td>4A</td>
+                        <td>01001010</td>
+                        <td>J</td>
+                    </tr>
+                    <tr>
+                        <td>4B</td>
+                        <td>01001011</td>
+                        <td>K</td>
+                    </tr>
+                    <tr>
+                        <td>4C</td>
+                        <td>01001100</td>
+                        <td>L</td>
+                    </tr>
+                    <tr>
+                        <td>4D</td>
+                        <td>01001101</td>
+                        <td>M</td>
+                    </tr>
+                    <tr>
+                        <td>4E</td>
+                        <td>01001110</td>
+                        <td>N</td>
+                    </tr>
+                    <tr>
+                        <td>4F</td>
+                        <td>01001111</td>
+                        <td>O</td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>01010000</td>
+                        <td>P</td>
+                    </tr>
+                    <tr>
+                        <td>51</td>
+                        <td>01010001</td>
+                        <td>Q</td>
+                    </tr>
+                    <tr>
+                        <td>52</td>
+                        <td>01010010</td>
+                        <td>R</td>
+                    </tr>
+                    <tr>
+                        <td>53</td>
+                        <td>01010011</td>
+                        <td>S</td>
+                    </tr>
+                    <tr>
+                        <td>54</td>
+                        <td>01010100</td>
+                        <td>T</td>
+                    </tr>
+                    <tr>
+                        <td>55</td>
+                        <td>01010101</td>
+                        <td>U</td>
+                    </tr>
+                    <tr>
+                        <td>56</td>
+                        <td>01010110</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>57</td>
+                        <td>01010111</td>
+                        <td>W</td>
+                    </tr>
+                    <tr>
+                        <td>58</td>
+                        <td>01011000</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>59</td>
+                        <td>01011001</td>
+                        <td>Y</td>
+                    </tr>
+                    <tr>
+                        <td>5A</td>
+                        <td>01011010</td>
+                        <td>Z</td>
+                    </tr>
+                    <tr>
+                        <td>5B</td>
+                        <td>01011011</td>
+                        <td>[</td>
+                    </tr>
+                    <tr>
+                        <td>5C</td>
+                        <td>01011100</td>
+                        <td>\</td>
+                    </tr>
+                    <tr>
+                        <td>5D</td>
+                        <td>01011101</td>
+                        <td>]</td>
+                    </tr>
+                    <tr>
+                        <td>5E</td>
+                        <td>01011110</td>
+                        <td>^</td>
+                    </tr>
+                    <tr>
+                        <td>5F</td>
+                        <td>01011111</td>
+                        <td>_</td>
+                    </tr>
+                    <tr>
+                        <td>60</td>
+                        <td>01100000</td>
+                        <td>`</td>
+                    </tr>
+                    <tr>
+                        <td>61</td>
+                        <td>01100001</td>
+                        <td>a</td>
+                    </tr>
+                    <tr>
+                        <td>62</td>
+                        <td>01100010</td>
+                        <td>b</td>
+                    </tr>
+                    <tr>
+                        <td>63</td>
+                        <td>01100011</td>
+                        <td>c</td>
+                    </tr>
+                    <tr>
+                        <td>64</td>
+                        <td>01100100</td>
+                        <td>d</td>
+                    </tr>
+                    <tr>
+                        <td>65</td>
+                        <td>01100101</td>
+                        <td>e</td>
+                    </tr>
+                    <tr>
+                        <td>66</td>
+                        <td>01100110</td>
+                        <td>f</td>
+                    </tr>
+                    <tr>
+                        <td>67</td>
+                        <td>01100111</td>
+                        <td>g</td>
+                    </tr>
+                    <tr>
+                        <td>68</td>
+                        <td>01101000</td>
+                        <td>h</td>
+                    </tr>
+                    <tr>
+                        <td>69</td>
+                        <td>01101001</td>
+                        <td>i</td>
+                    </tr>
+                    <tr>
+                        <td>6A</td>
+                        <td>01101010</td>
+                        <td>j</td>
+                    </tr>
+                    <tr>
+                        <td>6B</td>
+                        <td>01101011</td>
+                        <td>k</td>
+                    </tr>
+                    <tr>
+                        <td>6C</td>
+                        <td>01101100</td>
+                        <td>l</td>
+                    </tr>
+                    <tr>
+                        <td>6D</td>
+                        <td>01101101</td>
+                        <td>m</td>
+                    </tr>
+                    <tr>
+                        <td>6E</td>
+                        <td>01101110</td>
+                        <td>n</td>
+                    </tr>
+                    <tr>
+                        <td>6F</td>
+                        <td>01101111</td>
+                        <td>o</td>
+                    </tr>
+                    <tr>
+                        <td>70</td>
+                        <td>01110000</td>
+                        <td>p</td>
+                    </tr>
+                    <tr>
+                        <td>71</td>
+                        <td>01110001</td>
+                        <td>q</td>
+                    </tr>
+                    <tr>
+                        <td>72</td>
+                        <td>01110010</td>
+                        <td>r</td>
+                    </tr>
+                    <tr>
+                        <td>73</td>
+                        <td>01110011</td>
+                        <td>s</td>
+                    </tr>
+                    <tr>
+                        <td>74</td>
+                        <td>01110100</td>
+                        <td>t</td>
+                    </tr>
+                    <tr>
+                        <td>75</td>
+                        <td>01110101</td>
+                        <td>u</td>
+                    </tr>
+                    <tr>
+                        <td>76</td>
+                        <td>01110110</td>
+                        <td>v</td>
+                    </tr>
+                    <tr>
+                        <td>77</td>
+                        <td>01110111</td>
+                        <td>w</td>
+                    </tr>
+                    <tr>
+                        <td>78</td>
+                        <td>01111000</td>
+                        <td>x</td>
+                    </tr>
+                    <tr>
+                        <td>79</td>
+                        <td>01111001</td>
+                        <td>y</td>
+                    </tr>
+                    <tr>
+                        <td>7A</td>
+                        <td>01111010</td>
+                        <td>z</td>
+                    </tr>
+                    <tr>
+                        <td>7B</td>
+                        <td>01111011</td>
+                        <td>{</td>
+                    </tr>
+                    <tr>
+                        <td>7C</td>
+                        <td>01111100</td>
+                        <td>|</td>
+                    </tr>
+                    <tr>
+                        <td>7D</td>
+                        <td>01111101</td>
+                        <td>}</td>
+                    </tr>
+                    <tr>
+                        <td>7E</td>
+                        <td>01111110</td>
+                        <td>~</td>
+                    </tr>
+                    <tr>
+                        <td>7F</td>
+                        <td>01111111</td>
+                        <td>DEL</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="images">
+            <img src="Image/UBNJR.png" alt="Image 1">
+            <iframe src="ascii-to-binary.html" frameborder="0"></iframe>
+        </div>
+    </div>
+</body>
+
+</html>

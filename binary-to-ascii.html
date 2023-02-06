@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <style>
+       .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+
+      input[type="text"] {
+         font-size: 18px;
+         padding: 10px;
+         margin: 10px;
+         width: 70%;
+      }
+
+      button {
+         padding: 10px 20px;
+         font-size: 18px;
+         margin-top: 20px;
+         background-color: lightblue;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+      }
+
+      textarea {
+
+         font-size: 18px;
+         padding: 10px;
+         margin: 10px;
+         width: 70%;
+         font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #swapimg {
+
+         transform: rotate(90deg);
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <h2>Binary to ASCII Converter</h2>
+      <input type="text" id="binary-input">
+      <div>
+         <button id="convert-button">Convert</button>
+         <button onclick="swap()" id="convert-button"><img id="swapimg" width="15" src="Image/arrows.png" alt=""
+               srcset=""> Swap</button>
+      </div>
+
+      <textarea id="text" cols="30" rows="10" disabled></textarea>
+      <input type="text" id="ascii-output" hidden>
+   </div>
+   <script>
+      const convertButton = document.querySelector("#convert-button");
+      convertButton.addEventListener("click", function () {
+         const binaryInput = document.querySelector("#binary-input");
+         const asciiOutput = document.querySelector("#ascii-output");
+         const asciitext = document.querySelector("#text");
+         asciiOutput.value = "";
+         const binaryArray = binaryInput.value.split(" ");
+         for (let i = 0; i < binaryArray.length; i++) {
+            asciiOutput.value += String.fromCharCode(parseInt(binaryArray[i], 2));
+         }
+         asciitext.value = asciiOutput.value;
+      });
+
+      const swap = () => {
+         window.location.href = "ascii-to-binary.html";
+      }
+   </script>
+</body>
+
+</html>

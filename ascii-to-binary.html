@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <style>
+      .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+
+      input[type="text"] {
+         font-size: 18px;
+         padding: 10px;
+         margin: 10px;
+         width: 70%;
+      }
+
+      button {
+         padding: 10px 20px;
+         font-size: 18px;
+         margin-top: 20px;
+         background-color: lightblue;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+      }
+
+      textarea {
+
+         font-size: 18px;
+         padding: 10px;
+         margin: 10px;
+         width: 70%;
+         font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #swapimg {
+
+         transform: rotate(90deg);
+      }
+   </style>
+</head>
+
+<body>
+
+
+   <div class="container">
+      <h2>ASCII to Binary Converter</h2>
+      <input type="text" id="ascii-input">
+      <div>
+         <button id="convert-button">Convert</button>
+         <button onclick="swap()" id="convert-button"><img id="swapimg" width="15" src="Image/arrows.png" alt=""
+               srcset=""> Swap</button>
+      </div>
+
+      <input type="text" id="binary-output" hidden>
+      <textarea id="text" cols="30" rows="10" disabled></textarea>
+   </div>
+   <script>
+
+
+
+
+      const convertButton = document.querySelector("#convert-button");
+      convertButton.addEventListener("click", function () {
+         const asciiInput = document.querySelector("#ascii-input");
+         const binaryOutput = document.querySelector("#binary-output");
+         const binarytext = document.querySelector("#text");
+
+         binaryOutput.value = "";
+         for (let i = 0; i < asciiInput.value.length; i++) {
+            binaryOutput.value += asciiInput.value[i].charCodeAt(0).toString(2) + " ";
+
+
+         }
+         binarytext.value = binaryOutput.value;
+      });
+
+      const swap = () => {
+         window.location.href = "binary-to-ascii.html";
+      }
+
+
+   </script>
+</body>
+
+</html>
